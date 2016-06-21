@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Vitaliy Kudla" />
+  <title>Table Products</title>
+  <link href="bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/app.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container products">
+  <div class="row product-filters">
+    <div class="col-md-12">
+      <form class="form-inline search-product" action="#" method="get">
+        <div class="form-group">
+          <label class="sr-only" for="products-name">Name</label>
+          <input type="text" class="form-control" id="products-name" placeholder="enter name products" />
+        </div>
+        <button id="product-search" type="submit" class="btn btn-info">Search</button>
+      </form>
+      <button id="showModalWindow" class="btn btn-success product-add">Add New</button>
+    </div>
+  </div>
+  <div class="row">
+    <div id="products-table" class="col-md-12">
+      <table class="table table-bordered table-products">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th><a href="#" id="name-index" class="table-header">Name</a> <span class="glyphicon"></span></th>
+          <th><a href="#" id="price-index" class="table-header">Price</a> <span class="glyphicon"></span></th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="tbody-table">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="overlay"></div>
+
+<!-- Templates -->
+<!-- ROW TEMPLATE -->
+<script type="text/template" id="productRowTemplate">
+  <tr data-id="<%= product.id %>" class="table-data">
+    <td><%=product.id%></td>
+    <td>
+      <a href="#" class="product-name"><%=product.name%></a>
+      <span class="label label-info product-count"><%=product.count%></span>
+    </td>
+    <td><%=product.price%></td>
+    <td>
+      <button class="btn btn-warning edit-product">Edit</button>
+      <button class="btn btn-danger delete-product">Delete</button>
+    </td>
+  </tr>
+</script>
+<!-- MODAL WINDOW ADD/EDIT TEMPLATE -->
+<script type="text/template" id="modalWindowProduct"></script>
+<!-- MODAL WINDOW DELETE TEMPLATE -->
+<script type="text/template" id="questionModalWindowTemplate"></script>
+
+<script src="bower/jquery/dist/jquery.min.js"></script>
+<script src="bower/lodash/dist/lodash.js"></script>
+<script src="js/app.js"></script>
+<!-- Models -->
+<script src="js/models/productsList.js"></script>
+<script src="js/models/deleteTemplate.js"></script>
+<script src="js/models/editTemplate.js"></script>
+<script src="js/models/addTemplate.js"></script>
+<script src="js/models/validator.js"></script>
+<!-- View -->
+<script src="js/views/tableRowView.js"></script>
+<script src="js/views/deleteTemplateView.js"></script>
+<script src="js/views/editTemplateView.js"></script>
+<script src="js/views/addTemplateView.js"></script>
+<!-- Controller -->
+<script src="js/controllers/tableRowController.js"></script>
+<script src="js/controllers/deleteTemplateController.js"></script>
+<script src="js/controllers/editTemplateController.js"></script>
+<script src="js/controllers/addTemplateController.js"></script>
+</body>
+</html>

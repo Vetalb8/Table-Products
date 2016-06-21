@@ -1,0 +1,68 @@
+﻿<div id="window-product-add">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <a href="#" id="<%= editTemplate.btn.btnClose.id %>" class="btn <%= editTemplate.btn.btnClose.cssClass %>"><%= editTemplate.btn.btnClose.text %></a>
+      <form role="form" class="form-add-product">
+        <div class="form-group col-md-12">
+          <label class="form-label" for="name-product"><%=editTemplate.labelText.name%></label>
+          <input type="text" class="form-control" id="name-product" name="name-product" value="<%= editTemplate.product.name %>" />
+          <div class="error"></div>
+        </div>
+        <div class="form-group col-md-12">
+          <label class="form-label" for="email-supplier"><%=editTemplate.labelText.supEmail%></label>
+          <input type="text" class="form-control" id="email-supplier" name="email-supplier" value="<%= editTemplate.product.emailSupplier %>" />
+          <div class="error"></div>
+        </div>
+        <div class="form-group col-md-4">
+          <label class="form-label" for="count-product"><%=editTemplate.labelText.count%></label>
+          <input type="text" class="form-control" id="count-product" name="count-product" value="<%= editTemplate.product.count %>" />
+          <div class="error"></div>
+        </div>
+        <div class="form-group col-md-12">
+          <label class="form-label" for="price-product"><%=editTemplate.labelText.price%></label>
+          <input type="text" class="form-control" id="price-product" name="price-product" value="<%= editTemplate.product.price %>" />
+          <div class="error"></div>
+        </div>
+        <div class="form-group col-md-12">
+          <label class="form-label"><%=editTemplate.labelText.delivery%></label>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="delivery-product"></label>
+              <select id="delivery-product" name="delivery-product" class="form-control">
+                <% for( option in editTemplate.selectOptions) {%>
+                <option value="<%= option %>"><%= editTemplate.selectOptions[option] %></option>
+                <% } %>
+              </select>
+            </div>
+            <div id="block-country" class="col-md-4">
+              <div class="radio-options">
+                <% for(radio in editTemplate.radioOptions) {%>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="<%= editTemplate.radioOptions[radio].toLowerCase() %>" id="first-<%= radio %>" value="<%= radio %>" />
+                    <%= editTemplate.radioOptions[radio] %>
+                  </label>
+                </div>
+                <% } %>
+              </div>
+            </div>
+            <div id="block-city" class="col-md-4">
+              <% for(checkbox in editTemplate.checkBoxOptions) {%>
+              <div class="checkbox">
+                <label>
+                  <input id="<%= (editTemplate.checkBoxOptions[checkbox].toUpperCase()).trim() %>" type="checkbox" value="<%= checkbox %>" />
+                  <%= editTemplate.checkBoxOptions[checkbox] %>
+                </label>
+              </div>
+              <% } %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <!-- <button type="submit" id="btnAddProduct" class="btn btn-success">Add</button> -->
+          <button type="submit" id="<%= editTemplate.btn.btnEdit.id %>" class="btn <%= editTemplate.btn.btnEdit.cssClass %>"><%= editTemplate.btn.btnEdit.text %></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
